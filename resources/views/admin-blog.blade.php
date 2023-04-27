@@ -67,7 +67,7 @@
                             placeholder="Masukkan Title" required>
                         <label for="content" class="col-form-label">Content</label>
                         <textarea class="form-control" id="content" style="resize: vertical;  height: 100px;" name="content" required></textarea>
-                        <label for="author_name" class="col-form-label">Title</label>
+                        <label for="author_name" class="col-form-label">Author Name</label>
                         <input type="text" name="author_name" id="author_name" class="form-control"
                             placeholder="Masukkan Author Name" required>
                     </form>

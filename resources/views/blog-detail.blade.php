@@ -50,16 +50,23 @@
                                                     <li>
                                                         <h6><b>{{ $com->name }}<span> |
                                                                     {{ $com->created_at->format('Y-m-d') }}</span></b></h6>
-                                                        <p>{{ $com->comment }}
-                                                            @if ($com->user_id == Auth::user()->id)
-                                                                <button class="btn btn-sm me-2"
-                                                                    style="background-color: transparent; color: red;"
-                                                                    onclick="hapus_com({{ $com->id }})"> Hapus
-                                                                </button><button class="btn btn-sm me-2"
-                                                                    style="background-color: transparent; color: blue;"
-                                                                    onclick="edit_com({{ $com->id }})"> Edit
-                                                                </button>
-                                                            @endif
+                                                        <p>
+                                                            @guest
+                                                                @if (Route::has('login'))
+                                                                    {{ $com->comment }}
+                                                                @endif
+                                                            @else
+                                                                {{ $com->comment }}
+                                                                @if ($com->user_id == Auth::user()->id)
+                                                                    <button class="btn btn-sm me-2"
+                                                                        style="background-color: transparent; color: red;"
+                                                                        onclick="hapus_com({{ $com->id }})"> Hapus
+                                                                    </button><button class="btn btn-sm me-2"
+                                                                        style="background-color: transparent; color: blue;"
+                                                                        onclick="edit_com({{ $com->id }})"> Edit
+                                                                    </button>
+                                                                @endif
+                                                            @endguest
                                                         </p>
                                                     </li>
                                                 </ul>
